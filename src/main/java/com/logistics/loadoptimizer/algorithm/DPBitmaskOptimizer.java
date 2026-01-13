@@ -28,7 +28,6 @@ public class DPBitmaskOptimizer implements OptimizationAlgorithm {
             this.mask = mask;
         }
     }
-
     @Override
     public OptimizationResult optimize(
         List<Order> orders,
@@ -36,7 +35,6 @@ public class DPBitmaskOptimizer implements OptimizationAlgorithm {
         int maxVolumeCuft
     ) {
         if (orders == null || orders.isEmpty()) {
-            log.info("ENTER optimizer.optimize empty-orders");
             return createEmptyResult();
         }
 
@@ -44,8 +42,6 @@ public class DPBitmaskOptimizer implements OptimizationAlgorithm {
         if (n > 22) {
             log.warn("Order count {} exceeds recommended limit of 22", n);
         }
-
-        log.info("ENTER optimizer.optimize n={}", n);
 
         Map<Long, State> dp = new HashMap<>();
         dp.put(0L, new State(0, 0, 0, 0L));
@@ -81,9 +77,6 @@ public class DPBitmaskOptimizer implements OptimizationAlgorithm {
         State best = dp.values().stream()
             .max(Comparator.comparingLong(s -> s.payout))
             .orElse(new State(0, 0, 0, 0L));
-
-        log.info("EXIT optimizer.optimize bestPayout={}, selected={}",
-            best.payout, Long.bitCount(best.mask));
 
         List<Order> selectedOrders = new ArrayList<>();
         for (int i = 0; i < n; i++) {

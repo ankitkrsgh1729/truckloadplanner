@@ -8,12 +8,24 @@
 		<version>4.0.1</version>
 		<relativePath/>
 	</parent>
-
 	<groupId>com.logistics</groupId>
 	<artifactId>load-optimizer</artifactId>
 	<version>1.0.0</version>
 	<name>load-optimizer</name>
 	<description>Optimal truck load planner service</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
