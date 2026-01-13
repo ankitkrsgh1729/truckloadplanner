@@ -5,8 +5,8 @@ REST API for selecting the optimal combination of orders for a truck while respe
 ## How to run
 
 ```bash
-git clone <your-repo>
-cd truckloadplanner   # project root
+git clone https://github.com/ankitkrsgh1729/truckloadplanner.git
+cd truckloadplanner   # this repository root
 docker compose up --build
 # Service will be available at http://localhost:8080
 ```
