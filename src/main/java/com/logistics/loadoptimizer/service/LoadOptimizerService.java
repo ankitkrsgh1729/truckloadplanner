@@ -27,7 +27,7 @@ public class LoadOptimizerService {
         validationService.validateOrders(orders);
 
         if (orders.isEmpty()) {
-            log.warn("No orders provided for optimization");
+            log.info("No orders provided for optimization");
             OptimizationResult empty = createEmptyResult();
             return empty;
         }
