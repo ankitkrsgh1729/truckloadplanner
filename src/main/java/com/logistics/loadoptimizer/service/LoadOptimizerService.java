@@ -23,17 +23,13 @@ public class LoadOptimizerService {
     private final RouteCompatibilityService routeCompatibilityService;
 
     public OptimizationResult optimize(Truck truck, List<Order> orders) {
-        int orderCount = orders == null ? 0 : orders.size();
-        log.info("ENTER service.optimize truckId={}, orders={}",
-            truck != null ? truck.getId() : "unknown", orderCount);
-
-        validationService.validateTruck(truck);
+              validationService.validateTruck(truck);
         validationService.validateOrders(orders);
 
         if (orders.isEmpty()) {
             log.warn("No orders provided for optimization");
             OptimizationResult empty = createEmptyResult();
-            log.info("EXIT service.optimize empty result");
+            log.debug("EXIT service.optimize empty result");
             return empty;
         }
 
@@ -50,8 +46,6 @@ public class LoadOptimizerService {
                 bestResult = result;
             }
         }
-
-        log.info("EXIT service.optimize bestPayout={}", bestResult.getTotalPayoutCents());
         return bestResult;
     }
 
