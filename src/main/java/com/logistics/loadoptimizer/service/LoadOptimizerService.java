@@ -29,7 +29,6 @@ public class LoadOptimizerService {
         if (orders.isEmpty()) {
             log.warn("No orders provided for optimization");
             OptimizationResult empty = createEmptyResult();
-            log.debug("EXIT service.optimize empty result");
             return empty;
         }
 
